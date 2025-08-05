@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Músculos do Core Interativo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .muscle-area {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .muscle-area:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+        .info-panel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .muscle-highlight {
+            filter: brightness(1.2);
+            stroke: #fbbf24;
+            stroke-width: 3;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen p-4">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Músculos do Core</h1>
+            <p class="text-lg text-gray-600">Clique nos músculos para conhecer suas funções</p>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Anatomical Diagram -->
+                <div class="lg:col-span-1">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Anatomia Abdominal</h2>
+                    <div class="flex justify-center mb-6">
+                        <svg width="350" height="450" viewBox="0 0 400 500" class="border-2 border-gray-200 rounded-lg">
+                            <!-- Definições de gradientes para realismo -->
+                            <defs>
+                                <radialGradient id="bodyGradient" cx="50%" cy="30%" r="70%">
+                                    <stop offset="0%" style="stop-color:#fef3c7;stop-opacity:1" />
+                                    <stop offset="70%" style="stop-color:#f3f4f6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#e5e7eb;stop-opacity:1" />
+                                </radialGradient>
+                                <linearGradient id="redMuscle" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#f87171;stop-opacity:0.8" />
+                                    <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0.9" />
+                                </linearGradient>
+                                <linearGradient id="blueMuscle" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:0.8" />
+                                    <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0.9" />
+                                </linearGradient>
+                                <linearGradient id="greenMuscle" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#34d399;stop-opacity:0.7" />
+                                    <stop offset="100%" style="stop-color:#059669;stop-opacity:0.8" />
+                                </linearGradient>
+                                <linearGradient id="yellowMuscle" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.6" />
+                                    <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.7" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Background body outline com gradiente realista -->
+                            <path d="M120 50 Q140 45 160 48 Q180 52 200 50 Q220 52 240 48 Q260 45 280 50 
+                                     L285 70 Q290 90 292 120 Q295 160 294 200 Q293 240 290 280 
+                                     Q288 320 285 360 Q282 400 278 430 Q270 450 250 458 Q230 462 200 460 
+                                     Q170 462 150 458 Q130 450 122 430 Q118 400 115 360 Q112 320 110 280 
+                                     Q107 240 106 200 Q105 160 108 120 Q110 90 115 70 Z" 
+                                  fill="url(#bodyGradient)" stroke="#d1d5db" stroke-width="1.5"/>
+                            
+                            <!-- Sombra corporal para profundidade -->
+                            <ellipse cx="200" cy="460" rx="60" ry="8" fill="#000000" opacity="0.1"/>
+                            
+                            <!-- Costelas superiores (linhas sutis) -->
+                            <path d="M140 80 Q200 75 260 80" stroke="#d1d5db" stroke-width="1" fill="none" opacity="0.5"/>
+                            <path d="M145 95 Q200 90 255 95" stroke="#d1d5db" stroke-width="1" fill="none" opacity="0.5"/>
+                            <path d="M150 110 Q200 105 250 110" stroke="#d1d5db" stroke-width="1" fill="none" opacity="0.5"/>
+                            
+                            <!-- Reto Abdominal (Rectus Abdominis) - mais realista -->
+                            <g class="muscle-area" data-muscle="reto">
+                                <!-- Músculo principal com curvatura natural -->
+                                <path d="M175 125 Q200 120 225 125 L228 180 Q225 185 200 187 Q175 185 172 180 Z" 
+                                      fill="url(#redMuscle)"/>
+                                <path d="M174 185 Q200 182 226 185 L228 240 Q225 245 200 247 Q175 245 172 240 Z" 
+                                      fill="url(#redMuscle)"/>
+                                <path d="M173 245 Q200 242 227 245 L228 300 Q225 305 200 307 Q175 305 172 300 Z" 
+                                      fill="url(#redMuscle)"/>
+                                <path d="M172 305 Q200 302 228 305 L225 350 Q200 355 175 350 Z" 
+                                      fill="url(#redMuscle)"/>
+                                
+                                <!-- Linhas de definição (tendões intersegmentares) -->
+                                <line x1="172" y1="180" x2="228" y2="180" stroke="#b91c1c" stroke-width="1.5" opacity="0.8"/>
+                                <line x1="172" y1="240" x2="228" y2="240" stroke="#b91c1c" stroke-width="1.5" opacity="0.8"/>
+                                <line x1="172" y1="300" x2="228" y2="300" stroke="#b91c1c" stroke-width="1.5" opacity="0.8"/>
+                                <line x1="200" y1="125" x2="200" y2="350" stroke="#b91c1c" stroke-width="2" opacity="0.6"/>
+                                
+                                <!-- Sombreamento para volume -->
+                                <path d="M175 125 Q185 120 200 125 L200 350 Q185 345 175 350 Z" 
+                                      fill="#dc2626" opacity="0.3"/>
+                            </g>
+
+                            <!-- Oblíquo Externo (External Oblique) - fibras diagonais -->
+                            <g class="muscle-area" data-muscle="obliquo-externo">
+                                <!-- Lado esquerdo -->
+                                <path d="M125 145 Q145 135 170 145 L172 180 Q170 220 168 260 Q165 300 160 330 
+                                         Q150 340 135 335 Q125 320 120 280 Q118 240 120 200 Q122 170 125 145 Z" 
+                                      fill="url(#blueMuscle)"/>
+                                <!-- Lado direito -->
+                                <path d="M275 145 Q255 135 230 145 L228 180 Q230 220 232 260 Q235 300 240 330 
+                                         Q250 340 265 335 Q275 320 280 280 Q282 240 280 200 Q278 170 275 145 Z" 
+                                      fill="url(#blueMuscle)"/>
+                                
+                                <!-- Fibras musculares diagonais -->
+                                <g opacity="0.4">
+                                    <line x1="130" y1="160" x2="165" y2="180" stroke="#1d4ed8" stroke-width="1"/>
+                                    <line x1="128" y1="180" x2="163" y2="200" stroke="#1d4ed8" stroke-width="1"/>
+                                    <line x1="126" y1="200" x2="161" y2="220" stroke="#1d4ed8" stroke-width="1"/>
+                                    <line x1="124" y1="220" x2="159" y2="240" stroke="#1d4ed8" stroke-width="1"/>
+                                    
+                                    <line x1="270" y1="160" x2="235" y2="180" stroke="#1d4ed8" stroke-width="1"/>
+                                    <line x1="272" y1="180" x2="237" y2="200" stroke="#1d4ed8" stroke-width="1"/>
+                                    <line x1="274" y1="200" x2="239" y2="220" stroke="#1d4ed8" stroke-width="1"/>
+                                    <line x1="276" y1="220" x2="241" y2="240" stroke="#1d4ed8" stroke-width="1"/>
+                                </g>
+                            </g>
+
+                            <!-- Oblíquo Interno (Internal Oblique) - fibras perpendiculares -->
+                            <g class="muscle-area" data-muscle="obliquo-interno">
+                                <!-- Lado esquerdo -->
+                                <path d="M140 165 Q155 155 172 165 L172 200 Q170 240 168 280 Q165 310 155 320 
+                                         Q145 315 140 300 Q138 260 140 220 Q142 190 140 165 Z" 
+                                      fill="url(#greenMuscle)"/>
+                                <!-- Lado direito -->
+                                <path d="M260 165 Q245 155 228 165 L228 200 Q230 240 232 280 Q235 310 245 320 
+                                         Q255 315 260 300 Q262 260 260 220 Q258 190 260 165 Z" 
+                                      fill="url(#greenMuscle)"/>
+                                
+                                <!-- Fibras musculares perpendiculares ao externo -->
+                                <g opacity="0.4">
+                                    <line x1="165" y1="170" x2="145" y2="190" stroke="#047857" stroke-width="1"/>
+                                    <line x1="167" y1="190" x2="147" y2="210" stroke="#047857" stroke-width="1"/>
+                                    <line x1="169" y1="210" x2="149" y2="230" stroke="#047857" stroke-width="1"/>
+                                    
+                                    <line x1="235" y1="170" x2="255" y2="190" stroke="#047857" stroke-width="1"/>
+                                    <line x1="233" y1="190" x2="253" y2="210" stroke="#047857" stroke-width="1"/>
+                                    <line x1="231" y1="210" x2="251" y2="230" stroke="#047857" stroke-width="1"/>
+                                </g>
+                            </g>
+
+                            <!-- Transverso do Abdome (Transversus Abdominis) - camada profunda -->
+                            <g class="muscle-area" data-muscle="transverso">
+                                <!-- Forma elíptica mais natural -->
+                                <ellipse cx="200" cy="230" rx="85" ry="70" fill="url(#yellowMuscle)"/>
+                                <path d="M125 210 Q200 200 275 210 Q275 250 200 260 Q125 250 125 210" 
+                                      fill="url(#yellowMuscle)"/>
+                                
+                                <!-- Fibras horizontais características -->
+                                <g opacity="0.3">
+                                    <line x1="130" y1="215" x2="270" y2="215" stroke="#b45309" stroke-width="1"/>
+                                    <line x1="128" y1="230" x2="272" y2="230" stroke="#b45309" stroke-width="1"/>
+                                    <line x1="130" y1="245" x2="270" y2="245" stroke="#b45309" stroke-width="1"/>
+                                </g>
+                            </g>
+
+                            <!-- Labels -->
+                            <text x="200" y="95" text-anchor="middle" class="text-sm font-semibold fill-gray-700">ABDOMÉN</text>
+                            
+                            <!-- Linha alba (linha central) -->
+                            <line x1="200" y1="120" x2="200" y2="360" stroke="#9ca3af" stroke-width="1" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Legend -->
+                    <div class="bg-gray-50 rounded-xl p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3 text-center">Legenda dos Músculos</h3>
+                        <div class="grid grid-cols-1 gap-2">
+                            <div class="flex items-center space-x-3 p-2 bg-red-50 rounded-lg">
+                                <div class="w-4 h-4 bg-red-500 rounded"></div>
+                                <span class="font-medium text-gray-700 text-sm">Reto Abdominal</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-2 bg-blue-50 rounded-lg">
+                                <div class="w-4 h-4 bg-blue-500 rounded"></div>
+                                <span class="font-medium text-gray-700 text-sm">Oblíquo Externo</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-2 bg-green-50 rounded-lg">
+                                <div class="w-4 h-4 bg-green-500 rounded"></div>
+                                <span class="font-medium text-gray-700 text-sm">Oblíquo Interno</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-2 bg-yellow-50 rounded-lg">
+                                <div class="w-4 h-4 bg-yellow-500 rounded"></div>
+                                <span class="font-medium text-gray-700 text-sm">Transverso do Abdome</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Information Panel -->
+                <div class="lg:col-span-1">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Informações do Músculo</h2>
+                    <div id="info-content" class="info-panel rounded-xl p-6 text-white h-full">
+                        <div class="text-center h-full flex flex-col justify-center">
+                            <div class="text-6xl mb-4">💪</div>
+                            <h3 class="text-2xl font-bold mb-4">Músculos do Core</h3>
+                            <p class="text-lg opacity-90 mb-6">Clique em qualquer músculo no diagrama ao lado para conhecer suas funções específicas e importância.</p>
+                            <div class="bg-white bg-opacity-20 rounded-lg p-4 max-w-md mx-auto">
+                                <h4 class="font-semibold mb-2">Músculos Disponíveis:</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>🔴 Reto Abdominal</li>
+                                    <li>🔵 Oblíquo Externo</li>
+                                    <li>🟢 Oblíquo Interno</li>
+                                    <li>🟡 Transverso do Abdome</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        const muscleInfo = {
+            'reto': {
+                name: 'Reto Abdominal',
+                icon: '🔴',
+                functions: [
+                    'Flexão do tronco (movimento de "abdominal")',
+                    'Estabilização da coluna vertebral',
+                    'Compressão dos órgãos abdominais',
+                    'Auxilia na respiração forçada',
+                    'Participa dos movimentos de tosse e espirro'
+                ],
+                description: 'O músculo mais visível do abdome, responsável pelo famoso "tanquinho". É dividido em segmentos pelos tendões intersegmentares.',
+
+            },
+            'obliquo-externo': {
+                name: 'Oblíquo Externo',
+                icon: '🔵',
+                functions: [
+                    'Rotação do tronco para o lado oposto',
+                    'Flexão lateral do tronco',
+                    'Flexão do tronco (junto com reto abdominal)',
+                    'Compressão abdominal',
+                    'Estabilização da pelve'
+                ],
+                description: 'Localizado nas laterais do abdome, é o mais superficial dos músculos oblíquos. Suas fibras correm diagonalmente.',
+
+            },
+            'obliquo-interno': {
+                name: 'Oblíquo Interno',
+                icon: '🟢',
+                functions: [
+                    'Rotação do tronco para o mesmo lado',
+                    'Flexão lateral do tronco',
+                    'Flexão do tronco',
+                    'Compressão dos órgãos abdominais',
+                    'Estabilização da coluna lombar'
+                ],
+                description: 'Localizado abaixo do oblíquo externo, suas fibras correm perpendiculares ao externo, formando uma "cruz".',
+
+            },
+            'transverso': {
+                name: 'Transverso do Abdome',
+                icon: '🟡',
+                functions: [
+                    'Compressão abdominal (principal função)',
+                    'Estabilização da coluna vertebral',
+                    'Suporte dos órgãos internos',
+                    'Auxilia na respiração (expiração forçada)',
+                    'Manutenção da pressão intra-abdominal'
+                ],
+                description: 'O músculo mais profundo do abdome, funciona como um "cinto natural" que envolve toda a região abdominal.',
+
+            }
+        };
+
+        function showMuscleInfo(muscleKey) {
+            const muscle = muscleInfo[muscleKey];
+            const infoContent = document.getElementById('info-content');
+            
+            // Remove highlight from all muscles
+            document.querySelectorAll('.muscle-area').forEach(area => {
+                area.classList.remove('muscle-highlight');
+            });
+            
+            // Add highlight to selected muscle
+            document.querySelector(`[data-muscle="${muscleKey}"]`).classList.add('muscle-highlight');
+            
+            infoContent.innerHTML = `
+                <div class="space-y-4 h-full">
+                    <div class="text-center">
+                        <div class="text-4xl mb-2">${muscle.icon}</div>
+                        <h3 class="text-2xl font-bold mb-2">${muscle.name}</h3>
+                        <p class="text-base opacity-90">${muscle.description}</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h4 class="text-lg font-semibold mb-3">🎯 Principais Funções:</h4>
+                        <ul class="space-y-1 text-sm">
+                            ${muscle.functions.map(func => `<li class="flex items-start"><span class="mr-2">•</span>${func}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="text-center mt-auto">
+                        <button onclick="resetView()" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition-all duration-300 text-sm">
+                            ← Voltar ao início
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function resetView() {
+            const infoContent = document.getElementById('info-content');
+            
+            // Remove highlight from all muscles
+            document.querySelectorAll('.muscle-area').forEach(area => {
+                area.classList.remove('muscle-highlight');
+            });
+            
+            infoContent.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">💪</div>
+                    <h3 class="text-2xl font-bold mb-4">Músculos do Core</h3>
+                    <p class="text-lg opacity-90 mb-6">Clique em qualquer músculo no diagrama para conhecer suas funções específicas e importância.</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">Músculos Disponíveis:</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>🔴 Reto Abdominal</li>
+                            <li>🔵 Oblíquo Externo</li>
+                            <li>🟢 Oblíquo Interno</li>
+                            <li>🟡 Transverso do Abdome</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Add click event listeners to muscle areas
+        document.querySelectorAll('.muscle-area').forEach(area => {
+            area.addEventListener('click', function() {
+                const muscleKey = this.getAttribute('data-muscle');
+                showMuscleInfo(muscleKey);
+            });
+        });
+
+        // Add hover effects
+        document.querySelectorAll('.muscle-area').forEach(area => {
+            area.addEventListener('mouseenter', function() {
+                this.style.filter = 'brightness(1.1)';
+            });
+            
+            area.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('muscle-highlight')) {
+                    this.style.filter = 'none';
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a8796f4313bba0',t:'MTc1NDQxOTc2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
